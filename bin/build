@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+bundle exec ruby-next nextify lib/
+rake build

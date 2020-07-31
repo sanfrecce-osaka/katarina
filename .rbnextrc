@@ -1,0 +1,4 @@
+nextify: |
+  -V
+  --min-version=2.5.0
+  --transpile-mode=rewrite
