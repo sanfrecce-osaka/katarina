@@ -12,3 +12,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+def openapi_doc_path(name)
+  [__dir__, 'fixtures', name].join('/')
+end
