@@ -1,0 +1,83 @@
+---
+openapi: 3.0.3
+info:
+  title: katarina
+paths:
+  "/v1/users":
+    get:
+      summary: 'api/v1/users #index'
+      parameters:
+      responses:
+        '200':
+          description: Response code is 200
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                        retired:
+                          type: boolean
+                  total_pages:
+                    type: integer
+                  current_page:
+                    type: integer
+                  per_page:
+                    type: integer
+              example:
+                data:
+                  - id: 4
+                    name: sanfrecce-osaka
+                    retired: false
+                total_pages: 1
+                current_page: 1
+                per_page: 25
+  "/v1/users/{id}":
+    get:
+      summary: 'api/v1/users #show'
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Response code is 200
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  retired:
+                    type: boolean
+              example:
+                id: 3
+                name: smith1045
+                retired: false
+        '404':
+          description: Response code is 404
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                  message:
+                    type: string
+              example:
+                code: 404
+                message: Not Found
