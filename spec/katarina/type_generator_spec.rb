@@ -357,7 +357,7 @@ RSpec.describe Katarina::TypeGenerator do
           }
         end
 
-        xit 'returns type what is object[][]' do
+        it 'returns type what is object[][]' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = {
               level3: boolean
@@ -382,7 +382,7 @@ RSpec.describe Katarina::TypeGenerator do
           }
         end
 
-        xit 'returns type what is object<array>[]' do
+        it 'returns type what is object<array>[]' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = {
               level2: null[]

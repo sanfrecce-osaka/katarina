@@ -13,10 +13,14 @@ module Katarina
 
       private
 
-      def members(types, level = 1)
+      def members(types, level = 0)
         case types
         when Hash
-          types.map { |name, type| member(name, type, level) }.join("\n")
+          [
+            "{",
+            types.map { |name, type| member(name, type, level + 1) },
+            "#{indent(level)}}",
+          ].join("\n")
         when Array
           "#{members(types.first, level)}[]"
         else
@@ -27,11 +31,7 @@ module Katarina
       def member(name, type, level)
         case type
         when Hash
-          [
-            "#{key(name, level)} {",
-            members(type, level + 1),
-            "#{indent(level)}}"
-          ]
+          "#{key(name, level)} #{members(type, level)}"
         when Array
           if type.first != 'null'
             "#{member(name, type.first, level).join("\n")}[]"
