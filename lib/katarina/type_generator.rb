@@ -33,11 +33,7 @@ module Katarina
         when Hash
           "#{key(name, level)} #{members(type, level)}"
         when Array
-          if type.first != 'null'
-            "#{member(name, type.first, level)}[]"
-          else
-            "#{key(name, level)} null[]"
-          end
+          "#{member(name, type.first, level)}[]"
         when String
           "#{key(name, level)} #{number?(type) ? 'number' : type}"
         end
