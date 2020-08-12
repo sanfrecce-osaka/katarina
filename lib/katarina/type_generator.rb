@@ -23,8 +23,10 @@ module Katarina
           ].join("\n")
         when Array
           "#{members(types.first, level)}[]"
-        else
+        when String
           number?(types) ? 'number' : types
+        else
+          raise "unknown type => #{types.class}: #{types}"
         end
       end
 
@@ -36,6 +38,8 @@ module Katarina
           "#{member(name, type.first, level)}[]"
         when String
           "#{key(name, level)} #{number?(type) ? 'number' : type}"
+        else
+          raise "unknown type => #{type.class}: #{type}"
         end
       end
 
