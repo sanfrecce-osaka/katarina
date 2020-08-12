@@ -34,7 +34,7 @@ module Katarina
           "#{key(name, level)} #{members(type, level)}"
         when Array
           if type.first != 'null'
-            "#{member(name, type.first, level).join("\n")}[]"
+            "#{member(name, type.first, level)}[]"
           else
             "#{key(name, level)} null[]"
           end

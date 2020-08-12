@@ -268,7 +268,7 @@ RSpec.describe Katarina::TypeGenerator do
           }
         end
 
-        xit 'returns type what is object<object<array>>' do
+        it 'returns type what is object<object<array>>' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = {
               level1: {
