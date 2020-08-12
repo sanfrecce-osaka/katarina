@@ -19,7 +19,7 @@ RSpec.describe Katarina::TypeGenerator do
           { type: 'string' }
         end
 
-        xit 'returns type what is string' do
+        it 'returns type what is string' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = string
           TYPE
@@ -31,7 +31,7 @@ RSpec.describe Katarina::TypeGenerator do
           { type: 'float' }
         end
 
-        xit 'returns type what is number' do
+        it 'returns type what is number' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = number
           TYPE
@@ -43,7 +43,7 @@ RSpec.describe Katarina::TypeGenerator do
           { type: 'integer' }
         end
 
-        xit 'returns type what is number' do
+        it 'returns type what is number' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = number
           TYPE
@@ -55,7 +55,7 @@ RSpec.describe Katarina::TypeGenerator do
           { type: 'boolean' }
         end
 
-        xit 'returns type what is boolean' do
+        it 'returns type what is boolean' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = boolean
           TYPE
@@ -67,7 +67,7 @@ RSpec.describe Katarina::TypeGenerator do
           { type: 'null' }
         end
 
-        xit 'returns type what is null' do
+        it 'returns type what is null' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = null
           TYPE
@@ -180,7 +180,7 @@ RSpec.describe Katarina::TypeGenerator do
             }
           end
 
-          xit 'returns type what is array whose item is string' do
+          it 'returns type what is array whose item is string' do
             expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
               type TApiV1UsersShow200 = string[]
             TYPE
@@ -195,7 +195,7 @@ RSpec.describe Katarina::TypeGenerator do
             }
           end
 
-          xit 'returns type what is array whose item is number' do
+          it 'returns type what is array whose item is number' do
             expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
               type TApiV1UsersShow200 = number[]
             TYPE
@@ -210,7 +210,7 @@ RSpec.describe Katarina::TypeGenerator do
             }
           end
 
-          xit 'returns type what is array whose item is number' do
+          it 'returns type what is array whose item is number' do
             expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
               type TApiV1UsersShow200 = number[]
             TYPE
@@ -225,7 +225,7 @@ RSpec.describe Katarina::TypeGenerator do
             }
           end
 
-          xit 'returns type what is array whose item is boolean' do
+          it 'returns type what is array whose item is boolean' do
             expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
               type TApiV1UsersShow200 = boolean[]
             TYPE
@@ -240,7 +240,7 @@ RSpec.describe Katarina::TypeGenerator do
             }
           end
 
-          xit 'returns type what is array whose item is null' do
+          it 'returns type what is array whose item is null' do
             expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
               type TApiV1UsersShow200 = null[]
             TYPE
@@ -405,7 +405,7 @@ RSpec.describe Katarina::TypeGenerator do
           }
         end
 
-        xit 'returns type what is array[][]' do
+        it 'returns type what is array[][]' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = string[][][]
           TYPE

@@ -5,10 +5,10 @@ module Katarina
     class << self
       def generate(schema)
         [
-          "type #{schema.name} = {",
+          "type #{schema.name} = ",
           members(schema.types),
-          "}\n"
-        ].join("\n")
+          "\n",
+        ].join
       end
 
       private
