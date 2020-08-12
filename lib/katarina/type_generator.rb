@@ -20,7 +20,7 @@ module Katarina
         when Array
           "#{members(types.first, level)}[]"
         else
-          types
+          number?(types) ? 'number' : types
         end
       end
 
@@ -39,8 +39,12 @@ module Katarina
             "#{key(name, level)} null[]"
           end
         when String
-          "#{key(name, level)} #{type == 'integer' ? 'number' : type}"
+          "#{key(name, level)} #{number?(type) ? 'number' : type}"
         end
+      end
+
+      def number?(type)
+        %w[integer float].include?(type)
       end
 
       def key(name, level)

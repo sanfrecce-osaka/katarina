@@ -104,7 +104,7 @@ RSpec.describe Katarina::TypeGenerator do
             }
           end
 
-          xit 'returns type what is object whose value is number' do
+          it 'returns type what is object whose value is number' do
             expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
               type TApiV1UsersShow200 = {
                 tax: number
@@ -297,7 +297,7 @@ RSpec.describe Katarina::TypeGenerator do
           }
         end
 
-        xit 'returns type what is object<object[]>' do
+        it 'returns type what is object<object[]>' do
           expect(Katarina::TypeGenerator.generate(schema_object)).to eq <<~TYPE
             type TApiV1UsersShow200 = {
               level1: {
