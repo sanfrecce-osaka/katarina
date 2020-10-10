@@ -19,12 +19,13 @@ module Katarina
           pair in { path:, http_method: }
           doc[:paths][path][http_method] in { responses:, summary: }
           responses.keys.map do |response_code|
+            responses[response_code][:content].values in [content]
             Schema.new(
               path,
               *summary.split(' ').then { [_1.first, _1.last[1..]] },
               http_method,
               response_code,
-              responses[response_code][:content][:'application/json'][:schema]
+              content[:schema]
             )
           end
         end
