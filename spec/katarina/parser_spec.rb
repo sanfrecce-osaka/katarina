@@ -4,8 +4,8 @@ RSpec.describe Katarina::Parser do
   describe '.parse' do
     let!(:path) { openapi_doc_path('openapi.yaml') }
 
-    it 'returns 3 schema objects' do
-      expect(Katarina::Parser.parse(path).length).to eq 3
+    it 'returns 4 schema objects' do
+      expect(Katarina::Parser.parse(path).length).to eq 4
       expect(Katarina::Parser.parse(path)).to all(be_a Katarina::Schema)
     end
 
